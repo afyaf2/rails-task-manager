@@ -1,0 +1,19 @@
+<h1>To-do list </h1>
+
+<div id="list-container">
+  <table>
+    <tbody>
+      <% @tasks.each do |task| %>
+          <tr>
+            <% if task.completed == true %>
+              <td><input type="checkbox" checked></td>
+            <% else %>
+              <td><input type="checkbox"></td>
+            <% end %>
+            <td><h2> <%= link_to(task.title, task_path(task)) %> </h2></td>
+            <td><p><%= link_to "Delete Task", task_path(task), method: :delete %><p></td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
